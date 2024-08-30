@@ -85,6 +85,7 @@ class IblockEntityObjectWrapper
 
         $result = $this->iblockElementObject->save();
         if (!$result->isSuccess()) {
+            $connection->rollbackTransaction();
             return $result;
         }
 
